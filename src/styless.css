@@ -1,0 +1,329 @@
+body {
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  background-color: #395171;
+  color: white;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+}
+.header-top {
+  background-color: rgb(3, 37, 65);
+  padding: 20px;
+}
+li {
+  list-style-type: none;
+}
+/* 
+------NAVBAR */
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+.nav .log-tool {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.link-nav,
+.link-nav:visited {
+  text-decoration: none;
+
+  color: #fff;
+}
+
+/* 
+------------FOrMS */
+
+.form-loguin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logueando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #dcf2ff;
+  padding: 40px;
+  border-radius: 10%;
+  color: #395171;
+}
+
+/* 
+CARDS STYLES  Movies*/
+/* 
+CARD SOLO STYLES */
+.card-solo {
+  width: 330px;
+  height: 445px;
+
+  background: #2a264f;
+  border: 5px solid #1a163f;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #2a264f;
+}
+
+.card-solo .img1 {
+  height: 100%;
+  width: 100%;
+
+  background-size: 330px 445px;
+}
+
+/* 
+MANY CARDS RENDERS */
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 230px;
+  height: 345px;
+  /* margin: 50px auto; */
+  background: #2a264f;
+  border: 5px solid #1a163f;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #2a264f;
+}
+
+.card .img1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background-size: 230px 345px;
+  background-position: left top;
+  transition: all 0.5s ease-in-out;
+}
+
+.card .title {
+  height: 22%;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: #fffc;
+  padding: 15px 10px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.card .text {
+  position: absolute;
+  bottom: 80px;
+  height: 120px;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+  transform: rotate(90deg);
+  transform-origin: 0 100px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.card .catagory {
+  position: absolute;
+  left: 10px;
+  top: 50px;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  background: #2a264f;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease;
+}
+
+.card .views {
+  position: absolute;
+  left: 10px;
+  top: 85px;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  background: #8b2463;
+  color: #fff;
+  border-radius: 5px;
+  transform: translate(-160px, 0);
+  transition: all 0.5s ease 0.15s;
+}
+
+.card:hover .img1 {
+  transform-origin: 300px 300px;
+  opacity: 0.3;
+}
+
+.card:hover .text {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.card:hover .views,
+.card:hover .catagory {
+  transform: translate(0);
+}
+
+.card:hover .title {
+  display: none;
+}
+
+/* 
+CARD USER STYLES */
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+  width: 240px;
+  height: 300px;
+  padding: 5px;
+  background: #2a264f;
+  border: 5px solid #1a163f;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #2a264f;
+}
+
+.user-card button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+
+  font-size: 15px;
+}
+.user-card img {
+  position: relative;
+  background-size: 10px 10px;
+  width: 60%;
+}
+
+.user-card button:hover {
+  opacity: 0.7;
+}
+
+/* 
+Button SYLES  */
+
+.form-botton {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-style: none;
+  border-radius: 1%;
+  color: #ffffff;
+  padding: 8px;
+  background: #3cb0fd;
+  text-decoration: none;
+}
+
+.form-botton:hover {
+  background: #87d1ff;
+  text-decoration: none;
+}
+
+.profile-btn {
+  color: #ffffff;
+  background: #3cb0fd;
+  border-radius: 2%;
+  border-style: none;
+}
+
+/* 
+<----> Grid */
+
+.layoutDePelis {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  gap: 40px;
+
+  justify-content: center;
+}
+
+@media (max-witdh: 560px) {
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  .layoutDePelis {
+    grid-template-columns: 100%;
+  }
+}
+
+/* .solo-movie {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 330px);
+  gap: 40px;
+  background-color: #032541;
+
+  justify-content: center;
+} */
+
+.solo-movie {
+  display: flex;
+  min-height: 500px;
+  height: 50vh;
+  background-size: cover;
+  background-color: black;
+  align-items: center;
+}
+
+.solo-movie-title {
+  display: inline;
+}
+
+.qoute-solo-movie {
+  font-size: 1rem;
+  color: grey;
+  opacity: 0.8;
+}
+
+.creator-solo-movie {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 
+<-----------------Profile */
+.solo-movie-profile {
+  display: flex;
+  min-height: 500px;
+  height: 50vh;
+  background-size: cover;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-info-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 40%;
+  height: 20vw;
+  border-radius: 2%;
+}
+
+.plain-text-user-profile {
+  text-align: center;
+}
