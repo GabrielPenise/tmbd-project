@@ -3,7 +3,6 @@ import { useAuthContext } from "../context/AuthContext";
 import { get, getUsersFavorites } from "../utils/pedidos";
 import MovieGrid from "./MovieGrid";
 import { useSearchContext } from "../context/SearchContext";
-import { useNavigate } from "react-router";
 
 export default function ProfileFavs() {
   const { setSearchText } = useSearchContext();

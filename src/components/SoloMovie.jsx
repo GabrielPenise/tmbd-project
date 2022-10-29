@@ -9,9 +9,9 @@ import CardSoloMovie from "./CardSoloMovie";
 
 export default function SoloMovie() {
   //Context Hooks
-  const navigate = useNavigate();
+
   const { user } = useAuthContext();
-  const { searchText, setSearchText } = useSearchContext();
+  const { setSearchText } = useSearchContext();
 
   //Local States Hooks
   const [movie, setMovie] = useState(undefined);
