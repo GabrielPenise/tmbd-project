@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 class Users extends S.Model {
   //-------------instance methods----------------//
   findOneFriends(usuario) {
-    console.log("usuario es", usuario);
     const bool = this.amigos.includes(usuario);
     return bool;
   }
@@ -22,10 +21,8 @@ class Users extends S.Model {
   }
 
   removeFilmFromFavorites(favorites) {
-    console.log("favorites", favorites);
     const index = this.favorites.indexOf(favorites);
     this.favorites.splice(index, 1);
-    console.log("el arreglo esta asi", this.favorites);
   }
 
   //passwordHash podria ejecutarlo directamente en la query del controller en el endpoint, pero de esta manera es mas practico y entendible

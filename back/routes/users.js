@@ -84,13 +84,12 @@ router.put("/", (req, res, next) => {
     },
   }).then((usuario) => {
     const boolFavoriteUser = usuario.findOneFavorites(favorites);
-    if (!boolFavoriteUser) {
-      usuario.favorites = [...usuario.favorites, favorites];
-    } else {
-      usuario.favorites = usuario.favorites.filter((pelicula) => {
-        return pelicula !== favorites;
-      });
-    }
+    !boolFavoriteUser
+      ? (usuario.favorites = [...usuario.favorites, favorites])
+      : (usuario.favorites = usuario.favorites.filter((pelicula) => {
+          return pelicula !== favorites;
+        }));
+
     usuario.save();
   });
 
@@ -129,7 +128,7 @@ router.get("/findOne/amigo", (req, res, next) => {
     },
   }).then((usuario) => {
     const boolAmigo = usuario.findOneFriends(amigo);
-    console.log("booleano es", boolAmigo);
+
     res.send(boolAmigo).status(200);
   });
 });
@@ -163,32 +162,14 @@ router.put("/friends", (req, res, next) => {
   }).then((usuario) => {
     const boolFriends = usuario.findOneFriends(amigo);
     if (!boolFriends) {
-      usuario.amigos.push(amigo);
-      Users.update(
-        {
-          amigos: usuario.amigos,
-        },
-        {
-          where: {
-            email,
-            lastname,
-          },
-        }
-      );
+      usuario.amigos = [...usuario.amigos, amigo];
     } else {
-      usuario.removeFriend(amigo);
-      Users.update(
-        {
-          amigos: usuario.amigos,
-        },
-        {
-          where: {
-            email,
-            lastname,
-          },
-        }
-      );
+      usuario.amigos = usuario.amigos.filter((amigos) => {
+        return amigos !== amigo;
+      });
+      console.log(" esto es post filter", usuario.amigos);
     }
+    usuario.save();
   });
   res.sendStatus(204);
 });
