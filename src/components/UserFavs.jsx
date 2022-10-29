@@ -6,8 +6,8 @@ import { useSearchContext } from "../context/SearchContext";
 import { useNavigate } from "react-router";
 
 export default function ProfileFavs() {
-  const { searchText, setSearchText } = useSearchContext();
-  const navigate = useNavigate();
+  const { setSearchText } = useSearchContext();
+
   const [listMovies, setListMovies] = useState([]);
   const { user } = useAuthContext();
 
@@ -34,7 +34,6 @@ export default function ProfileFavs() {
     listaDeFavs();
   }, []);
 
-  if (searchText) navigate("/search");
   if (!listMovies) return <div>Loading..</div>;
 
   return (

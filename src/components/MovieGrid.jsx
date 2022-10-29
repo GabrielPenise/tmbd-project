@@ -3,7 +3,6 @@ import Card from "./Card";
 import UserCard from "./UserCard";
 
 export default function MovieGrid({ listMovies }) {
-  console.log("movie grid", listMovies);
   if (!listMovies || listMovies.length === 0) return <div>Loading...</div>;
   if (!listMovies[0]?.email) {
     return (

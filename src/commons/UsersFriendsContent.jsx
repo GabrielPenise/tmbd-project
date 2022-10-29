@@ -6,8 +6,8 @@ import { useSearchContext } from "../context/SearchContext";
 import { useNavigate } from "react-router";
 
 export default function UsersFriendsContent() {
-  const { searchText, setSearchText } = useSearchContext();
-  const navigate = useNavigate();
+  const { setSearchText } = useSearchContext();
+
   const [amigosArr, setAmigosArr] = useState(null);
   const { user } = useAuthContext();
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function UsersFriendsContent() {
         setAmigosArr(arregloUsuarios);
       });
   }, []);
-  if (searchText) navigate("/search");
+
   return (
     <>
       <div>

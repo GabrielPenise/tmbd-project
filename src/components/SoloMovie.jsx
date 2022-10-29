@@ -49,7 +49,6 @@ export default function SoloMovie() {
   };
 
   if (!movie) return <div>loading..</div>;
-  if (searchText) navigate("/search");
 
   return (
     <div className="container">

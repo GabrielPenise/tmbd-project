@@ -11,8 +11,7 @@ export default function UserProfileMain() {
   const { user } = useAuthContext();
   const { email, lastname } = user;
   const [startUser, setStartUser] = useState("2002");
-  const { searchText, setSearchText } = useSearchContext();
-  const navigate = useNavigate();
+  const { setSearchText } = useSearchContext();
 
   useEffect(() => {
     setSearchText(null);
@@ -23,7 +22,6 @@ export default function UserProfileMain() {
       });
   }, []);
 
-  // if (searchText) navigate("/search");
   return (
     <>
       <div
