@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { Axios } from "../utils";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
@@ -27,8 +27,7 @@ export default function UserLoguin() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post("/api/users/login", login)
+    Axios.post("/users/login", login)
       .then((usuario) => {
         setUser(usuario.data);
         navigate(`/${usuario.data.name}${usuario.data.lastname}`);

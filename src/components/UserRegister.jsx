@@ -1,4 +1,4 @@
-import axios from "axios";
+import { Axios } from "../utils";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,7 +15,7 @@ export default function UserRegister() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/api/users/register", registerPayload);
+    Axios.post("/users/register", registerPayload);
     navigate("/");
   };
 

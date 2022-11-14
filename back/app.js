@@ -3,8 +3,14 @@ const morgan = require("morgan");
 const path = require("path");
 const routes = require("./routes/index.js");
 const cokie = require("cookie-parser");
+const cors = require("cors");
 
 //const routes = require("./routes");
+const whiteList = ["http://localhost:3000", "http://localhost:5000"];
+const corsOptions = {
+  origin: whiteList, //included origin as true
+  credentials: true, //included credentials as true
+};
 
 const app = express();
 
@@ -21,6 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(cors(corsOptions));
 app.use(cokie());
 app.use("/api", routes);
 

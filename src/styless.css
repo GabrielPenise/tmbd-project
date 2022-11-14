@@ -5,6 +5,13 @@ body {
   color: white;
   min-height: 100vh;
 }
+.bg-myDarkBlue {
+  background-color: rgb(3, 37, 65);
+}
+
+.btn-myBtnLigthBlue {
+  background: #3cb0fd;
+}
 
 button {
   font-family: inherit;
