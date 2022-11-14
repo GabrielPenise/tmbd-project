@@ -17,6 +17,7 @@ import UsersFriendsContent from "./commons/UsersFriendsContent";
 
 function App() {
   const { setUser, user } = useAuthContext();
+
   useEffect(() => {
     axios
       .get("/api/users/auth")
