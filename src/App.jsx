@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./commons/Navbar";
+
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 
@@ -14,6 +14,7 @@ import UserProfileMain from "./components/UserProfileMain";
 
 import UsersList from "./commons/UsersList";
 import UsersFriendsContent from "./commons/UsersFriendsContent";
+import NavbarTmbd from "./commons/NavbarTmbd";
 
 function App() {
   const { setUser, user } = useAuthContext();
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <NavbarTmbd />
 
       <div className="App">
         <Routes>

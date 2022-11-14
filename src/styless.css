@@ -5,6 +5,9 @@ body {
   color: white;
   min-height: 100vh;
 }
+.bg-myBlue {
+  background-color: rgb(3, 37, 65);
+}
 
 button {
   font-family: inherit;

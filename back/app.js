@@ -9,7 +9,7 @@ const cors = require("cors");
 const whiteList = ["http://localhost:5173", "http://localhost:5000"];
 
 const app = express();
-app.use(cors({ origin: [whiteList] }));
+app.use(cors());
 
 if (process.env.MODE !== "grade") {
   app.use(

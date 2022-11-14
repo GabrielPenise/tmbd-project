@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import App from "./App";
+import "bootstrap/dist/css/bootstrap.min.css";
 import styless from "./styless.css";
 import { SearchContextProvider } from "./context/SearchContext";
 
