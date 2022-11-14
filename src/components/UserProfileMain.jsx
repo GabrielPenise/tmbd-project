@@ -16,7 +16,9 @@ export default function UserProfileMain() {
   useEffect(() => {
     setSearchText(null);
     axios
-      .get("/api/users/findOne", { params: { email, lastname } })
+      .get("http://localhost:5000/api/users/findOne", {
+        params: { email, lastname },
+      })
       .then((date) => {
         setStartUser(date.data.createdAt.slice(0, 4));
       });

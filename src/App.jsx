@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
-
-import axios from "axios";
+import { Axios } from "./utils/index.js";
 
 import UserLoguin from "./components/UserLoguin";
 import UserRegister from "./components/UserRegister";
@@ -19,14 +18,18 @@ import NavbarTmbd from "./commons/NavbarTmbd";
 function App() {
   const { setUser, user } = useAuthContext();
 
+  const userAuth = async () => {
+    try {
+      const usuario = await Axios.get("/users/auth");
+
+      setUser(usuario.data);
+    } catch (err) {
+      console.log(err, "cookie no encontrada");
+    }
+  };
+
   useEffect(() => {
-    axios
-      .get("/api/users/auth")
-      .then((res) => res.data)
-      .then((usuario) => {
-        setUser(usuario);
-      })
-      .catch((err) => console.log(err, "cookie no encontrada"));
+    userAuth();
   }, []);
 
   return (
@@ -36,7 +39,10 @@ function App() {
       <div className="App">
         <Routes>
           {!user ? (
-            <Route path="/" element={<UserLoguin />} />
+            <>
+              <Route path="/" element={<UserLoguin />} />
+              <Route path="/register" element={<UserRegister />} />
+            </>
           ) : (
             <>
               <Route
@@ -64,8 +70,6 @@ function App() {
               />
             </>
           )}
-
-          <Route path="/register" element={<UserRegister />} />
         </Routes>
       </div>
     </>
