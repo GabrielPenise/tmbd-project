@@ -27,7 +27,7 @@ export default function NavbarTmbd() {
           <Navbar.Brand>TMBD PROJECT</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="me-auto p-2">
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
@@ -40,12 +40,14 @@ export default function NavbarTmbd() {
                 </Button>
               ) : (
                 <>
-                  <Link to="/">
-                    <Button className="btn-myBtnLigthBlue">Sing In</Button>
-                  </Link>
-                  <Link to="/register">
-                    <Button className="btn-myBtnLigthBlue">Register</Button>
-                  </Link>
+                  <div>
+                    <Link to="/">
+                      <Button className="btn-myBtnLigthBlue">Sing In</Button>
+                    </Link>
+                    <Link to="/register">
+                      <Button className="btn-myBtnLigthBlue">Register</Button>
+                    </Link>
+                  </div>
                 </>
               )}
             </Nav>

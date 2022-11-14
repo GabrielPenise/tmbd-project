@@ -1,6 +1,9 @@
 import { Axios } from "../utils";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { Container, Col, Row } from "react-bootstrap";
 
 export default function UserRegister() {
   const navigate = useNavigate();
@@ -19,63 +22,72 @@ export default function UserRegister() {
     navigate("/");
   };
 
+  console.log(registerPayload);
+
   return (
     <>
-      <div className="container">
-        <div className="form-loguin">
-          <form onSubmit={handleSubmit} className="logueando">
-            <div className="bienvenida">
-              Create Account, its easy, its fast.
-            </div>
-            <br></br>
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col xs={12} md={6} className="bg-darkOpacity rounded-5 p-4 mt-4 ">
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  name="email"
+                  value={registerPayload.email}
+                  onChange={handleInput}
+                  required
+                />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
 
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              onChange={handleInput}
-              value={registerPayload.name}
-              required
-            />
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={registerPayload.password}
+                  onChange={handleInput}
+                  required
+                />
+              </Form.Group>
 
-            <label htmlFor="lastname">Last Name</label>
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              value={registerPayload.lastname}
-              onChange={handleInput}
-              required
-            />
+              <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  value={registerPayload.name}
+                  onChange={handleInput}
+                  placeholder="Enter your name.."
+                  required
+                />
+              </Form.Group>
 
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              onChange={handleInput}
-              value={registerPayload.email}
-              required
-            />
+              <Form.Group className="mb-3" controlId="formBasicLastName">
+                <Form.Label>Lastname</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="lastname"
+                  value={registerPayload.lastname}
+                  onChange={handleInput}
+                  placeholder="Enter your lastname.."
+                  required
+                />
+              </Form.Group>
 
-            <label htmlFor="pass">Password</label>
-            <input
-              type="password"
-              id="pass"
-              name="password"
-              onChange={handleInput}
-              value={registerPayload.password}
-              required
-            />
-            <div className="bottons form-bottons">
-              <br></br>
-
-              <button className="form-bottons">Registrate</button>
-            </div>
-          </form>
-        </div>
-      </div>
+              <Button className="btn-myBtnLigthBlue" type="submit">
+                Register
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }

@@ -3,6 +3,9 @@ import { Axios } from "../utils";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { Container, Col, Row } from "react-bootstrap";
 
 export default function UserLoguin() {
   //UseFullVars
@@ -37,45 +40,47 @@ export default function UserLoguin() {
         setLoguin(initialState);
       });
   };
+
   return (
     <>
-      <div className="container">
-        <div className="form-loguin">
-          <form onSubmit={handleSubmit} className="logueando">
-            <div className="bienvenida">Welcome, Please Sing Up</div>
-            <br></br>
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              value={login.email}
-              onChange={handleInput}
-              placeholder="Email..."
-              required
-            />
-            <label htmlFor="pass">Password</label>
-            <input
-              type="password"
-              id="pass"
-              name="password"
-              value={login.password}
-              onChange={handleInput}
-              placeholder="Password..."
-              required
-            />
-            <div className="bottons form-bottons">
-              <br></br>
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col xs={12} md={6} className="bg-darkOpacity rounded-5 p-4 mt-4 ">
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  name="email"
+                  value={login.email}
+                  onChange={handleInput}
+                  required
+                />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
 
-              <button type="submit">Ingresa</button>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={login.password}
+                  onChange={handleInput}
+                  placeholder="Password"
+                  required
+                />
+              </Form.Group>
 
-              <Link to="/register">
-                <button className="form-bottons">Registrate</button>
-              </Link>
-            </div>
-          </form>
-        </div>
-      </div>
+              <Button className="btn-myBtnLigthBlue" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
