@@ -3,10 +3,13 @@ const morgan = require("morgan");
 const path = require("path");
 const routes = require("./routes/index.js");
 const cokie = require("cookie-parser");
+const cors = require("cors");
 
 //const routes = require("./routes");
+const whiteList = ["http://localhost:5173", "http://localhost:5000"];
 
 const app = express();
+app.use(cors({ origin: [whiteList] }));
 
 if (process.env.MODE !== "grade") {
   app.use(

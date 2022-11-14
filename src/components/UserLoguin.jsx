@@ -28,7 +28,7 @@ export default function UserLoguin() {
     e.preventDefault();
 
     axios
-      .post("/api/users/login", login)
+      .post("http://localhost:5000/api/users/login", login)
       .then((usuario) => {
         setUser(usuario.data);
         navigate(`/${usuario.data.name}${usuario.data.lastname}`);
