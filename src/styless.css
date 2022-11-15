@@ -5,12 +5,32 @@ body {
   color: white;
   min-height: 100vh;
 }
+/* .container-fluid {
+  padding: 0px;
+} */
+
+#carouselTry {
+  position: absolute;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  #carouselTryContainer {
+    height: 500px;
+  }
+}
+
+/* @media screen and (min-width: 768px) {
+  #carouselTryContainer {
+    height: 500px;
+  }
+} */
+
 .bg-myDarkBlue {
   background-color: rgb(3, 37, 65);
 }
 
 .bg-darkOpacity {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .btn-myBtnLigthBlue {
@@ -27,7 +47,7 @@ button {
 li {
   list-style-type: none;
 }
-/* 
+/*
 ------NAVBAR */
 .nav {
   display: flex;
@@ -47,7 +67,7 @@ li {
   color: #fff;
 }
 
-/* 
+/*
 ------------FOrMS */
 
 .form-loguin {
@@ -67,9 +87,9 @@ li {
   color: #395171;
 }
 
-/* 
+/*
 CARDS STYLES  Movies*/
-/* 
+/*
 CARD SOLO STYLES */
 .card-solo {
   width: 330px;
@@ -88,7 +108,7 @@ CARD SOLO STYLES */
   background-size: 330px 445px;
 }
 
-/* 
+/*
 MANY CARDS RENDERS */
 .card {
   position: relative;
@@ -190,7 +210,7 @@ MANY CARDS RENDERS */
   display: none;
 }
 
-/* 
+/*
 CARD USER STYLES */
 
 .user-card {
@@ -231,7 +251,7 @@ CARD USER STYLES */
   opacity: 0.7;
 }
 
-/* 
+/*
 Button SYLES  */
 
 .form-botton {
@@ -257,14 +277,14 @@ Button SYLES  */
   border-style: none;
 }
 
-/* 
+/*
 <----> Grid */
 
 .layoutDePelis {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 230px);
+  grid-template-columns: repeat(auto-fill, 250px);
   gap: 40px;
-
+  margin-top: 20px;
   justify-content: center;
 }
 
@@ -312,7 +332,7 @@ Button SYLES  */
   justify-content: space-around;
 }
 
-/* 
+/*
 <-----------------Profile */
 .solo-movie-profile {
   display: flex;
