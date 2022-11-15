@@ -56,10 +56,7 @@ function App() {
                 path={`/${user.name}${user.lastname}`}
                 element={<UserProfileMain />}
               />
-              <Route
-                path={`/${user.name}${user.lastname}/favorites`}
-                element={<UserFavs />}
-              />
+              <Route path={`/favorites`} element={<UserFavs />} />
               <Route
                 path={`/${user.name}${user.lastname}/usuarios`}
                 element={<UsersList />}
