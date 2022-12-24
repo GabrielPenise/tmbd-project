@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import MovieGrid from "../components/MovieGrid";
+import Grid from "../components/Grid";
 import { useSearchContext } from "../context/SearchContext";
 
 export default function UsersContent() {
@@ -21,7 +21,7 @@ export default function UsersContent() {
         <h1>Usuarios:</h1>
       </div>
       <div>
-        <MovieGrid listMovies={usuarios} />
+        <Grid listMovies={usuarios} />
       </div>
     </>
   );

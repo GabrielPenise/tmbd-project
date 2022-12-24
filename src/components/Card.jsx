@@ -37,5 +37,3 @@ export default function Card({ movie }) {
     </>
   );
 }
-
-// https://image.tmdb.org/t/p/original/54x6WfreK5gIr6VlXpQYB7u7e1b.jpg"

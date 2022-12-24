@@ -6,19 +6,9 @@ const validateAuth = require("../middlewares/auth");
 
 const { Users } = require("../models/index");
 
-router.get("/", (req, res, next) => {
-  Users.findAll().then((users) => res.status(200).send(users));
-});
+router.get("/", UserController.allUser);
 
-router.get("/findOne", (req, res, next) => {
-  const { email, lastname } = req.query;
-  Users.findOne({
-    where: {
-      email,
-      lastname,
-    },
-  }).then((usuario) => res.status(200).send(usuario));
-});
+router.get("/findOne", UserController.findOne);
 
 router.post("/register", UserController.registerUser);
 

@@ -22,8 +22,6 @@ export default function UserRegister() {
     navigate("/");
   };
 
-  console.log(registerPayload);
-
   return (
     <>
       <Container>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import { get, getUsersFavorites } from "../utils/pedidos";
-import MovieGrid from "./MovieGrid";
+import Grid from "./Grid";
 import { useSearchContext } from "../context/SearchContext";
 
 export default function ProfileFavs() {
@@ -39,7 +39,7 @@ export default function ProfileFavs() {
     <>
       <div>
         <h2>Peliculas Favoritas</h2>
-        <MovieGrid listMovies={listMovies} />
+        <Grid listMovies={listMovies} />
       </div>
     </>
   );

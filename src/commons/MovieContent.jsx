@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { get, getSearch } from "../utils/pedidos";
 import { useSearchContext } from "../context/SearchContext";
-import MovieGrid from "../components/MovieGrid";
+import Grid from "../components/Grid";
 
 export default function MovieContent() {
   const [listMovies, setListMovies] = useState(undefined);
@@ -17,5 +17,5 @@ export default function MovieContent() {
   }, [searchText]);
   if (!listMovies) return <div>Still Loading</div>;
 
-  return <MovieGrid listMovies={listMovies} />;
+  return <Grid listMovies={listMovies} />;
 }

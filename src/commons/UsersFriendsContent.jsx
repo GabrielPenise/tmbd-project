@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MovieGrid from "../components/MovieGrid";
+import Grid from "../components/Grid";
 import { useAuthContext } from "../context/AuthContext";
 import { useSearchContext } from "../context/SearchContext";
 import { useNavigate } from "react-router";
@@ -33,7 +33,7 @@ export default function UsersFriendsContent() {
       </div>
 
       <div>
-        <MovieGrid listMovies={amigosArr} />{" "}
+        <Grid listMovies={amigosArr} />{" "}
       </div>
     </>
   );

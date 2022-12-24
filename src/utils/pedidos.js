@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Axios } from ".";
 
 const api = "https://api.themoviedb.org/3";
 const searchUrl =
@@ -30,7 +31,9 @@ export const getSearch = (searchOption) => {
 //Recibe un user y un id, para hacer la consulta en la api local host, en caso de que lo tenga esto retorna true o false
 export const getFindOneFavorites = (usuario, id) => {
   return axios
-    .get("/api/users/favorites/film", { params: { ...usuario, id } })
+    .get("/api/users/favorites/film", {
+      params: { ...usuario, id },
+    })
     .then((usuario) => usuario);
 };
 
