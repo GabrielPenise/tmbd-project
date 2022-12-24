@@ -43,6 +43,7 @@ Users.init(
     email: {
       type: S.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         notEmpty: true,
         isEmail: true,
@@ -53,6 +54,7 @@ Users.init(
       allowNull: false,
       validate: {
         notEmpty: true,
+        min: 5,
       },
     },
     salt: {

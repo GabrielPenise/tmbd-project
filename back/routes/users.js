@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { generateToken } = require("../config/token");
+const UserController = require("../controller/UserController");
 const validateAuth = require("../middlewares/auth");
 
 const { Users } = require("../models/index");
@@ -19,14 +20,7 @@ router.get("/findOne", (req, res, next) => {
   }).then((usuario) => res.status(200).send(usuario));
 });
 
-router.post("/register", (req, res, next) => {
-  Users.create(req.body)
-    .then((user) => res.status(201).send(user))
-    .catch((err) => {
-      console.log("fallo el register");
-      console.error(err);
-    });
-});
+router.post("/register", UserController.registerUser);
 
 router.post("/login", (req, res, next) => {
   const { email, password } = req.body;
