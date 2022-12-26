@@ -1,3 +1,4 @@
+const { generateToken } = require("../config/token");
 const UserServices = require("../services/UserServices");
 
 class UserController {
@@ -44,6 +45,9 @@ class UserController {
         .send({ message: data.message || data })
         .next();
     }
+
+    const token = generateToken(data);
+    res.cookie("tokenUser", token);
     res.status(201).send(data);
   }
 }

@@ -43,16 +43,36 @@ class UserServices {
     }
   }
 
-  static async login(email, password) {
+  static async login(mail, password) {
     try {
       const usuario = await Users.findOne({
         where: {
-          email,
+          email: mail,
         },
       });
 
+      if (!usuario) {
+        return {
+          error: true,
+          data: {
+            status: 401,
+            message: "No existe el usuario",
+          },
+        };
+      }
+
       const { email, name, lastname } = usuario;
-      const isValid = usuario.validatePassword(password);
+      const isValid = await usuario.validatePassword(password);
+      if (!isValid)
+        return {
+          error: true,
+          data: {
+            status: 401,
+            message: "Password Incorrecto",
+          },
+        };
+
+      return { error: false, data: { email, name, lastname } };
     } catch (error) {
       return { error: true, data: error };
     }

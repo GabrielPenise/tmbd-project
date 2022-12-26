@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import { useAuthContext } from "./context/AuthContext";
 import { Axios } from "./utils/index.js";
 
@@ -17,6 +17,7 @@ import NavbarTmbd from "./commons/NavbarTmbd";
 
 function App() {
   const { setUser, user } = useAuthContext();
+  const navigate = useNavigate();
 
   const userAuth = async () => {
     try {
@@ -24,7 +25,7 @@ function App() {
 
       setUser(usuario.data);
     } catch (err) {
-      console.log(err, "cookie no encontrada");
+      navigate("/");
     }
   };
 

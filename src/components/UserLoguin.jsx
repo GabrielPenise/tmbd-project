@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Axios } from "../utils";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -20,6 +20,17 @@ export default function UserLoguin() {
 
   //Handles and Functions
 
+  const userLogin = async () => {
+    try {
+      const usuario = await Axios.post("/users/login", login);
+      setUser(usuario.data);
+      navigate(`/${usuario.data.name}${usuario.data.lastname}`);
+    } catch (err) {
+      alert("Usuario o contraseña incorrecta");
+      setLoguin(initialState);
+    }
+  };
+
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -29,16 +40,7 @@ export default function UserLoguin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    Axios.post("/users/login", login)
-      .then((usuario) => {
-        setUser(usuario.data);
-        navigate(`/${usuario.data.name}${usuario.data.lastname}`);
-      })
-      .catch(() => {
-        alert("Usuario o contraseña incorrecta");
-        setLoguin(initialState);
-      });
+    userLogin();
   };
 
   return (
