@@ -42,8 +42,7 @@ class UserController {
     if (error) {
       return res
         .status(data.status || 401)
-        .send({ message: data.message || data })
-        .next();
+        .send({ message: data.message || data });
     }
 
     const token = generateToken(data);
